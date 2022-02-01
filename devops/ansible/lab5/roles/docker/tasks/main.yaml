@@ -1,16 +1,16 @@
 - name: Install Docker into Debian like system
   block:
-  - name: install packages
-    apt:
-      name:
-        - apt-transport-https
-        - ca-certificates
-        - curl
-        - gnupg2
-        - software-properties-common
-      state: present
-      update_cache: yes
-      cache_valid_time: 3600
+    - name: install packages
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - gnupg2
+          - software-properties-common
+        state: present
+        update_cache: yes
+        cache_valid_time: 3600
 
   - name: install repo key
     apt_key:
