@@ -1,0 +1,5 @@
+---
+packet_manager: apt
+ntpdate_path: /etc/default/ntpdate
+chrony_path: /etc/chrony/chrony.conf
+chrony_name: chrony

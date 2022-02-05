@@ -1,0 +1,5 @@
+---
+packet_manager: yum
+ntpdate_path: /etc/sysconfig/ntpdate
+chrony_path: /etc/chrony.conf
+chrony_name: chronyd

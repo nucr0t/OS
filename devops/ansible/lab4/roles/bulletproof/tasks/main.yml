@@ -1,0 +1,35 @@
+---
+#HackerU ansible task 1
+- name: Set Moscow timezone
+  ansible.builtin.command: timedatectl set-timezone Europe/Moscow
+
+#HackerU ansible task 2
+- name: Time synchronisation
+  block:
+    - name: Install chrony Debian-like
+      apt:
+        name: chrony
+        state: present
+        update_cache: yes
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - name: Install chrony CentOS
+      yum:
+        name: chrony
+        state: present
+        update_cache: yes
+      when: ansible_distribution == 'CentOS'
+
+    - name: Set additional time servers
+      blockinfile:
+        path: '{{ chrony_path }}'
+        block: |
+          server  time-a-g.nist.gov
+          server  129.6.15.29
+
+    - name: Enable and restart chrony
+      systemd:
+        name: '{{ chrony_name }}'
+        enabled: yes
+        daemon_reload: yes
+        state: restarted

@@ -2,12 +2,12 @@
 servers=[
   {
     :hostname => "debian",
-    :ip => "192.168.56.1",
+    :ip => "192.168.56.2",
     :box => "debian/buster64"
   },
   {
     :hostname => "centos",
-    :ip => "192.168.56.2",
+    :ip => "192.168.56.3",
     :box => "centos/7"
   }
 ]

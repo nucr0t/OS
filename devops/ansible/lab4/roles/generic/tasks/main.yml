@@ -1,0 +1,13 @@
+---
+#HackerU ansible task 0
+- name: Check OS type
+  raw: "grep '^NAME=' /etc/os-release"
+  register: release
+
+- name: Install python3
+  raw: "sudo apt -y install python3"
+  when: release is regex("Debian|Ubuntu")
+
+- name: Install python3
+  raw: "sudo yum -y install python3"
+  when: release is regex("Red|CentOS")

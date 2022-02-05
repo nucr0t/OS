@@ -1,0 +1,9 @@
+[lab4]
+192.168.56.2    ansible_ssh_private_key_file="/home/rusal/hackeru/OS/devops/ansible/lab5/.vagrant/machines/debian/virtualbox/private_key"
+192.168.56.3    ansible_ssh_private_key_file="/home/rusal/hackeru/OS/devops/ansible/lab5/.vagrant/machines/centos/virtualbox/private_key"
+
+[lab4:vars]
+ansible_port=22
+ansible_connection=ssh
+ansible_user=vagrant
+ansible_ssh_extra_args="-o PasswordAuthentication=no"
